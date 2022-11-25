@@ -41,9 +41,6 @@ const StyledLogoButton = styled(ListItemButton)(({ theme }) => ({
   marginBottom: "1.0rem",
   marginLeft: "1rem",
   justifyContent: "left", //center
-  // padding: "8px 12px 8px 16px",
-  // borderRadius: "8px",
-  // backgroundColor: theme.palette.primary.main,
   "&:hover": { 
     backgroundColor: "transparent" 
   },
@@ -54,9 +51,6 @@ const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
   marginBottom: "0.5rem",
   marginLeft: "1rem",
   justifyContent: "left", //center
-  // padding: "8px 12px 8px 16px",
-  // borderRadius: "8px",
-  // backgroundColor: theme.palette.primary.main,
   "&:hover": { 
     backgroundColor: "transparent" 
   },
@@ -67,9 +61,6 @@ const StyledListItemTextForMenu = styled(ListItemText)(({ theme }) => ({
   fontWeight: "600",
   fontSize: "0.875rem",
   fontFamily: "'Public Sans', sans-serif",
-  // "&:hover": { 
-  //   backgroundColor: "transparent" 
-  // },
 }));
 
 const StyledDivider = styled(Divider)(({ theme }) => ({
@@ -111,7 +102,7 @@ const DashboardSideBar: FC<SideNavBarProps> = ({
       <ScrollBar style={{ maxHeight: "calc(100% - 50px)" }}>
         {topMenuList.map((nav, index) => (
             <div>
-              {nav.isType == "menu" &&
+              {nav.isType === "menu" &&
                 <Tooltip title={nav.title} placement="right" key={index}>
                   <StyledListItemButton
                     disableRipple
@@ -123,11 +114,17 @@ const DashboardSideBar: FC<SideNavBarProps> = ({
                           active === nav.title ? "primary.main" : "secondary.400",
                       }}
                     />
-                    <StyledListItemTextForMenu primary={`${nav.title}`} />
+                    <StyledListItemTextForMenu
+                      primary={`${nav.title}`}
+                      sx={{
+                        color:
+                          active === nav.title ? "primary.main" : "secondary.400",
+                      }}
+                      />
                   </StyledListItemButton>
                 </Tooltip>
               }
-              {nav.isType != "menu" &&
+              {nav.isType !== "menu" &&
                 <StyledDivider textAlign="left">{nav.title}</StyledDivider>
               }
             </div>
@@ -143,7 +140,7 @@ const DashboardSideBar: FC<SideNavBarProps> = ({
         anchor="left"
         open={showMobileSideBar}
         onClose={closeMobileSideBar}
-        PaperProps={{ sx: { width: 80 } }}
+        PaperProps={{ sx: { width: 230 } }}
       >
         <Box
           sx={{

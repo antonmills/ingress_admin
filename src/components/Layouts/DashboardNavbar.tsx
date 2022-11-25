@@ -8,9 +8,9 @@ import {
 } from "@mui/material";
 import { TitleContext } from "contexts/TitleContext";
 import { FC, useContext } from "react";
-import LanguagePopover from "./popovers/LanguagePopover";
 import NotificationsPopover from "./popovers/NotificationsPopover";
 import ProfilePopover from "./popovers/ProfilePopover";
+import SearchPopover from "./popovers/SearchPopover";
 import ServicePopover from "./popovers/ServicePopover";
 
 // root component interface
@@ -51,7 +51,9 @@ const DashboardNavbar: FC<DashboardNavBarProps> = ({
 }) => {
   const { title } = useContext(TitleContext);
   const upSm = useMediaQuery((theme: Theme) => theme.breakpoints.up("sm"));
-  const downSm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  // const downSm = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const downSm = useMediaQuery((theme: Theme) => theme.breakpoints.down("md"));
+  // anton hack on getting nav bar in md
 
   if (downSm) {
     return (
@@ -72,7 +74,7 @@ const DashboardNavbar: FC<DashboardNavBarProps> = ({
             />
           </Box>
 
-          <LanguagePopover />
+          {/* <LanguagePopover /> */}
           <ProfilePopover />
         </StyledToolBar>
       </DashboardNavbarRoot>
@@ -104,6 +106,7 @@ const DashboardNavbar: FC<DashboardNavBarProps> = ({
         {upSm && (
           <>
             {/* <LanguagePopover /> */}
+            <SearchPopover />
             <NotificationsPopover />
             <ServicePopover />
           </>

@@ -2,9 +2,9 @@ import { Box, Grid, useTheme } from "@mui/material";
 import Analytics from "components/Dashboards/saas/Analytics";
 import SaaSCard from "components/Dashboards/saas/Card";
 import Footer from "components/Dashboards/saas/Footer";
+import MonthlyAttendance from "components/Dashboards/saas/MonthlyAttendance";
 import RecentOrders from "components/Dashboards/saas/RecentOrders";
 import TopSelling from "components/Dashboards/saas/TopSelling";
-import TotalSpent from "components/Dashboards/saas/TotalSpent";
 import useTitle from "hooks/useTitle";
 import BucketIcon from "icons/BucketIcon";
 import EarningIcon from "icons/EarningIcon";
@@ -22,25 +22,25 @@ const SaaS: FC = () => {
     {
       price: 574,
       Icon: BucketIcon,
-      title: "Total Active Users",
+      title: "Todays Attendance",
       color: theme.palette.primary.main,
     },
     {
       price: 521,
-      title: "Earnings",
+      title: "Busiest Hour",
       Icon: EarningIcon,
       color: theme.palette.primary.purple,
     },
     {
       price: 684,
       Icon: WindowsLogoIcon,
-      title: "Weekly revenue",
+      title: "Active Users",
       color: theme.palette.primary.red,
     },
     {
       price: 321,
       Icon: PeopleIcon,
-      title: "New Clients",
+      title: "New Users",
       color: theme.palette.primary.yellow,
     },
   ];
@@ -57,7 +57,7 @@ const SaaS: FC = () => {
 
       <Grid container spacing={4} pt={4}>
         <Grid item lg={8} md={7} xs={12}>
-          <TotalSpent />
+          <MonthlyAttendance />
         </Grid>
         <Grid item lg={4} md={5} xs={12}>
           <Analytics />
