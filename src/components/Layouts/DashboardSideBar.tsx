@@ -3,9 +3,7 @@ import {
   List, ListItemButton,
   ListItemText,
   styled,
-  Theme,
-  Tooltip,
-  useMediaQuery
+  Theme, useMediaQuery
 } from "@mui/material";
 import { FC, useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -103,7 +101,7 @@ const DashboardSideBar: FC<SideNavBarProps> = ({
         {topMenuList.map((nav, index) => (
             <div>
               {nav.isType === "menu" &&
-                <Tooltip title={nav.title} placement="right" key={index}>
+                // <Tooltip title={nav.title} placement="right" key={index}>
                   <StyledListItemButton
                     disableRipple
                     onClick={handleActiveMainMenu(nav)}
@@ -122,7 +120,7 @@ const DashboardSideBar: FC<SideNavBarProps> = ({
                       }}
                       />
                   </StyledListItemButton>
-                </Tooltip>
+                // </Tooltip>
               }
               {nav.isType !== "menu" &&
                 <StyledDivider textAlign="left">{nav.title}</StyledDivider>
