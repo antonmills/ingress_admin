@@ -24,16 +24,18 @@ const StyledCard = styled(Card)(({ theme }) => ({
 }));
 
 const Cardv2: FC<SaaSCardProps> = ({ card }) => {
-  const { Icon, title, color, value } = card;
+  const { Icon, title, subtitle, change, changeOverview, changeGood, color, value } = card;
 
   return (
     <StyledCard>
       <Box mt={{ xs: "1rem", sm: 0 }} >
           <H5 sx={{ color:"text.disabled", paddingTop:"0px" }}>{title}</H5>
+          <p style={{fontSize:"0.6rem", marginTop:"-0.1rem", color:"text.disabled"}}>{subtitle}</p>
           <Box sx={{display: "flex"}}>
             <H3 sx={{ fontSize: "2rem" }}>{value}</H3>
-            <Box sx={{ marginLeft: "auto"}}>
-              <p>+2.6%</p>
+            <Box sx={{ marginLeft: "auto", marginTop:"1.1rem", fontSize: "0.7rem"}}>
+                <p style={{fontSize:"1rem", display:"inline", marginBottom:"auto", color:changeGood==true?"green":"red"}}>{change}</p>
+                <p style={{display:"inline", marginBottom:"auto", color:changeGood==true?"green":"red"}}> {changeOverview}</p>
             </Box>
           </Box>
       </Box>
