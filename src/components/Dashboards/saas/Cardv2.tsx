@@ -34,7 +34,7 @@ const Cardv2: FC<SaaSCardProps> = ({ card }) => {
           <Box sx={{display: "flex"}}>
             <H3 sx={{ fontSize: "2rem" }}>{value}</H3>
             <Box sx={{ marginLeft: "auto", marginTop:"1.1rem", fontSize: "0.7rem"}}>
-                <p style={{fontSize:"1rem", display:"inline", marginBottom:"auto", color:changeGood==true?"green":"red"}}>{change}</p>
+                <p style={{fontSize:"1.2rem", display:"inline", marginBottom:"auto", color:changeGood==true?"green":"red"}}>{change}</p>
                 <p style={{display:"inline", marginBottom:"auto", color:changeGood==true?"green":"red"}}> {changeOverview}</p>
             </Box>
           </Box>
